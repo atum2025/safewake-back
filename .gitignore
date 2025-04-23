@@ -1,0 +1,13 @@
+# Node
+node_modules/
+.env
+npm-debug.log*
+
+# VSCode/IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Expo/React Native
+.expo/
+.expo-shared/
