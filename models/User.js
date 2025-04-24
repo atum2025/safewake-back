@@ -1,19 +1,15 @@
 import mongoose from 'mongoose';
 
-const emergencyContactSchema = new mongoose.Schema({
-  name: String,
-  whatsapp: String
-}, {_id : false});
+const UserSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true }, // hash!
+  whatsapp: { type: String, required: true },
+  birthDate: { type: Date, required: true },
+  country: { type: String, required: true },
+  emergencyContactName: { type: String, required: true },
+  emergencyContactPhone: { type: String, required: true }
+}, { timestamps: true });
 
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: { type: String, unique: true },
-  password: String,
-  whatsapp: String,
-  birthDate: String,
-  country: String,
-  emergencyContact: emergencyContactSchema,
-  defaultMessage: String
-});
+export default mongoose.model('User', UserSchema);
 
-export default mongoose.model('User', userSchema);
