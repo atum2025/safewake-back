@@ -20,7 +20,7 @@ SafeWakeApp – Checklist de Projeto e Prioridades
 [x] Middleware de autenticação/mecanismo de proteção das rotas privadas
 [x] CRUD de usuários funcionando
 4. Integração & Funcionalidades Especiais
-[ ] Integração do frontend com o backend (login/cadastro/alarme)
+[x] Integração do frontend com o backend (login/cadastro/alarme)
 [ ] Timer/disparo de alarme funcionando no app (simulação e real, conforme necessidade)
 [x] Mock de envio WhatsApp funcional
 [ ] Integração real do WhatsApp Business ou SMS Push (futuro/necessidade)
