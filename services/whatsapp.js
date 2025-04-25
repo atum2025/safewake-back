@@ -1,25 +1,11 @@
 // services/whatsapp.js
-import twilio from 'twilio';
-import dotenv from 'dotenv';
 
-dotenv.config();
-
-const client = twilio(
-  process.env.TWILIO_ACCOUNT_SID, 
-  process.env.TWILIO_AUTH_TOKEN
-);
-
-export async function sendWhatsApp(to, message) {
-  try {
-    const res = await client.messages.create({
-      body: message,
-      from: process.env.TWILIO_WHATSAPP_FROM,
-      to: `whatsapp:${to}`
-
-    });
-    return res.sid;
-  } catch (err) {
-    // Log ou lance o erro para debug
-    throw err;
-  }
+// Função simulada de envio de WhatsApp (mock/teste)
+async function sendWhatsApp(to, message) {
+  console.log(`Simulando envio de WhatsApp para ${to}: ${message}`);
+  // Retorna um objeto simbólico para o teste
+  return { success: true, to, message };
 }
+
+// Exporta como objeto para uso via WhatsApp.sendWhatsApp(...)
+export default { sendWhatsApp };

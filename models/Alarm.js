@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import WhatsApp from '../services/whatsapp.js';
 export const AVAILABLE_RINGTONES = ['alerta1.mp3', 'alerta2.mp3', 'alerta3.mp3'];
 
 const AlarmSchema = new mongoose.Schema({

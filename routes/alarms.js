@@ -1,7 +1,9 @@
+// routes/alarms.js
+
 import express from 'express';
 import Alarm, { AVAILABLE_RINGTONES } from '../models/Alarm.js';
 import auth from '../middleware/auth.js';
-import { sendWhatsApp } from '../services/whatsapp.js';
+import WhatsApp from '../services/whatsapp.js';
 
 const router = express.Router();
 
@@ -11,8 +13,8 @@ const router = express.Router();
  * ------------------------------------------
  * Envie no body:
  * {
- *   "to": "<phone number>",      // exemplo: "+551199999999"
- *   "message": "Olá, teste API"  // qualquer texto de teste
+ *   "to": "<phone number>", // exemplo: "+551199999999"
+ *   "message": "Olá, teste API" // qualquer texto de teste
  * }
  */
 router.post('/test-whatsapp', async (req, res) => {
@@ -21,8 +23,8 @@ router.post('/test-whatsapp', async (req, res) => {
     if (!to || !message) {
       return res.status(400).json({ error: '"to" e "message" são obrigatórios' });
     }
-    // Chama a função real que envia WhatsApp (troque por mock se quiser só testar)
-    const result = await sendWhatsApp(to, message);
+    // USO CORRETO DO SERVIÇO:
+    const result = await WhatsApp.sendWhatsApp(to, message);
     res.json({ success: true, result });
   } catch (err) {
     res.status(500).json({ error: err.message });
